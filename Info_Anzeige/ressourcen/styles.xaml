@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<!--Datei um das Aussehen von GUI-Elementen zu definieren-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style x:Key="DarkmodeButton" TargetType="Button">
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+</ResourceDictionary>
