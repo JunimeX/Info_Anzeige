@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Info_Anzeige"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" x:Name="HauptFenster"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Frame x:Name="MainFrame">
+        
+    </Frame>
 </Window>
