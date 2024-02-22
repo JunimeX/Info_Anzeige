@@ -31,16 +31,18 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ListBox Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" HorizontalContentAlignment="Center">
-                <Label Content="LOGIN" FontSize="16" FontWeight="Bold"/>
+            <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Style="{StaticResource RoundCornerBorder}" BorderBrush="Black" VerticalAlignment="Center">
+                <ListBox  HorizontalContentAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="LOGIN" FontSize="16" FontWeight="Bold"/>
 
-                <Label Content="Name"/>
-                <TextBlock x:Name="benutzerName" Width="100" FontSize="12" Text="{Binding Path=Name, Source=Benutzer}"/>
+                    <Label Content="Name"/>
+                    <TextBlock x:Name="benutzerName" Width="100" FontSize="12"/>
 
-                <Label Content="Passwort"/>
-                <TextBlock x:Name="benutzerPasswort" Width="100" FontSize="12" Text="{Binding Path=Passwort, Source=Benutzer}"/>
+                    <Label Content="Passwort"/>
+                    <TextBlock x:Name="benutzerPasswort" Width="100" FontSize="12"/>
 
-            </ListBox>
+                </ListBox>
+            </Border>
         </Grid>
     </Border>
 </Page>
