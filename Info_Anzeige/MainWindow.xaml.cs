@@ -20,7 +20,7 @@ namespace Info_Anzeige
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new Login());
+            MainFrame.NavigationService.Navigate(new ConnectionPage());
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
