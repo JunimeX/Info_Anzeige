@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<!--Datei um das Aussehen von GUI-Elementen zu definieren-->
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Close Icon -->
+    <DrawingGroup x:Key="close_xaml">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,24.0,24.0"/>
+        </DrawingGroup.ClipGeometry>
+        <DrawingGroup>
+            <GeometryDrawing>
+                <GeometryDrawing.Pen>
+                    <Pen Brush="#ff000000" LineJoin="Round" Thickness="2.0" DashCap="Round" EndLineCap="Round" StartLineCap="Round"/>
+                </GeometryDrawing.Pen>
+                <GeometryDrawing.Geometry>
+                    <PathGeometry Figures="M 16 16 L 12 12 M 12 12 L 8 8 M 12 12 L 16 8 M 12 12 L 8 16" FillRule="Nonzero"/>
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingGroup>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource close_xaml}" x:Key="di_close_xaml"/>
+    
+    <!-- Slim Close Icon -->
+    <DrawingGroup x:Key="smallcloseicon_xaml">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,1024.0,1024.0"/>
+        </DrawingGroup.ClipGeometry>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 764.288 214.592 L 512 466.88 L 259.712 214.592 a 31.936 31.936 0 0 0 -45.12 45.12 L 466.752 512 L 214.528 764.224 a 31.936 31.936 0 1 0 45.12 45.184 L 512 557.184 l 252.288 252.288 a 31.936 31.936 0 0 0 45.12 -45.12 L 557.12 512.064 l 252.288 -252.352 a 31.936 31.936 0 1 0 -45.12 -45.184 z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource smallcloseicon_xaml}" x:Key="di_smallcloseicon_xaml"/>
+
+    <!-- Maximize Icon -->
+    <DrawingGroup x:Key="maximize_xaml">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,24.0,24.0"/>
+        </DrawingGroup.ClipGeometry>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 22.5 15.5 A 1.5 1.5 0 0 0 21 17 v 1.5 A 2.5 2.5 0 0 1 18.5 21 H 17 a 1.5 1.5 0 0 0 0 3 h 1.5 A 5.506 5.506 0 0 0 24 18.5 V 17 A 1.5 1.5 0 0 0 22.5 15.5 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 7 0 H 5.5 A 5.506 5.506 0 0 0 0 5.5 V 7 A 1.5 1.5 0 0 0 3 7 V 5.5 A 2.5 2.5 0 0 1 5.5 3 H 7 A 1.5 1.5 0 0 0 7 0 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 7 21 H 5.5 A 2.5 2.5 0 0 1 3 18.5 V 17 a 1.5 1.5 0 0 0 -3 0 v 1.5 A 5.506 5.506 0 0 0 5.5 24 H 7 a 1.5 1.5 0 0 0 0 -3 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 18.5 0 H 17 a 1.5 1.5 0 0 0 0 3 h 1.5 A 2.5 2.5 0 0 1 21 5.5 V 7 a 1.5 1.5 0 0 0 3 0 V 5.5 A 5.506 5.506 0 0 0 18.5 0 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource maximize_xaml}" x:Key="di_maximize_xaml"/>
+
+    <!-- Window Icon -->
+    <DrawingGroup x:Key="normalwindow_xaml">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,24.0,24.0"/>
+        </DrawingGroup.ClipGeometry>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 9 2.5 A 6.5 6.5 0 0 1 2.5 9 h -1 a 1.5 1.5 0 0 1 0 -3 h 1 A 3.5 3.5 0 0 0 6 2.5 v -1 a 1.5 1.5 0 0 1 3 0 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 16.5 24 A 1.5 1.5 0 0 1 15 22.5 v -1 A 6.5 6.5 0 0 1 21.5 15 h 1 a 1.5 1.5 0 0 1 0 3 h -1 A 3.5 3.5 0 0 0 18 21.5 v 1 A 1.5 1.5 0 0 1 16.5 24 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 22.5 9 h -1 A 6.5 6.5 0 0 1 15 2.5 v -1 a 1.5 1.5 0 0 1 3 0 v 1 A 3.5 3.5 0 0 0 21.5 6 h 1 a 1.5 1.5 0 0 1 0 3 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 7.5 24 A 1.5 1.5 0 0 1 6 22.5 v -1 A 3.5 3.5 0 0 0 2.5 18 h -1 a 1.5 1.5 0 0 1 0 -3 h 1 A 6.5 6.5 0 0 1 9 21.5 v 1 A 1.5 1.5 0 0 1 7.5 24 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource normalwindow_xaml}" x:Key="di_normalwindow_xaml"/>
+    
+    <!-- Minimize Icon -->
+    <DrawingGroup x:Key="minimize_xaml">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,24.0,24.0"/>
+        </DrawingGroup.ClipGeometry>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 7 11 a 1 1 0 0 0 0 2 H 17 a 1 1 0 0 0 0 -2 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource minimize_xaml}" x:Key="di_minimize_xaml"/>
+
+    <!-- Loading Circle -->
+    <DrawingGroup x:Key="loadingcircle_xaml">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,1024.0,1024.0"/>
+        </DrawingGroup.ClipGeometry>
+        <GeometryDrawing Brush="#ff000000">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 512 1024 c -69.1 0 -136.2 -13.5 -199.3 -40.2 C 251.7 958 197 921 150 874 c -47 -47 -84 -101.7 -109.8 -162.7 C 13.5 648.2 0 581.1 0 512 c 0 -19.9 16.1 -36 36 -36 s 36 16.1 36 36 c 0 59.4 11.6 117 34.6 171.3 c 22.2 52.4 53.9 99.5 94.3 139.9 c 40.4 40.4 87.5 72.2 139.9 94.3 C 395 940.4 452.6 952 512 952 c 59.4 0 117 -11.6 171.3 -34.6 c 52.4 -22.2 99.5 -53.9 139.9 -94.3 c 40.4 -40.4 72.2 -87.5 94.3 -139.9 C 940.4 629 952 571.4 952 512 c 0 -59.4 -11.6 -117 -34.6 -171.3 a 440.45 440.45 0 0 0 -94.3 -139.9 a 437.71 437.71 0 0 0 -139.9 -94.3 C 629 83.6 571.4 72 512 72 c -19.9 0 -36 -16.1 -36 -36 s 16.1 -36 36 -36 c 69.1 0 136.2 13.5 199.3 40.2 C 772.3 66 827 103 874 150 c 47 47 83.9 101.8 109.7 162.7 c 26.7 63.1 40.2 130.2 40.2 199.3 s -13.5 136.2 -40.2 199.3 C 958 772.3 921 827 874 874 c -47 47 -101.8 83.9 -162.7 109.7 c -63.1 26.8 -130.2 40.3 -199.3 40.3 z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource loadingcircle_xaml}" x:Key="di_loadingcircle_xaml"/>
+    
+</ResourceDictionary>

@@ -5,6 +5,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!-- Main Grid Style-->
+    <Style x:Key="MainGrid" TargetType="Grid">
+        <Setter Property="Background" Value="LightGray"/>
+    </Style>
     <!-- Button Styles-->
 
     <!-- Button Style Login-->
@@ -28,6 +32,29 @@
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="DimGray"/>
     </Style>
+
+    <!-- Round Border TextBox-->
+    <Style x:Key="RoundCornerTextBox" TargetType="TextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="6"
+                            BorderThickness="2"
+                            BorderBrush="Black"
+                            Background="{TemplateBinding Background}">
+                        <TextBox FontSize="11"
+                                 Foreground="Black"
+                                 BorderThickness="0"
+                                 Margin="1.5"
+                                 HorizontalAlignment="Stretch"
+                                 HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center"
+                            />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
     <!-- RoundCornerButton -->
     <Style x:Key="RoundCornerButton" TargetType="Button">
@@ -35,11 +62,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="6" 
-                            BorderThickness="2"
-                            BorderBrush="Black"
-                            Background="{TemplateBinding Background}">
+                        BorderThickness="2"
+                        BorderBrush="Black"
+                        Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" 
-                                          VerticalAlignment="Center"/>
+                                      VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -53,4 +80,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

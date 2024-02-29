@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ressourcen\icons\**" />
+    <EmbeddedResource Remove="ressourcen\icons\**" />
+    <None Remove="ressourcen\icons\**" />
+    <Page Remove="ressourcen\icons\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Remove="ressourcen\styles.xaml" />
   </ItemGroup>
 
@@ -24,6 +31,10 @@
 
   <ItemGroup>
     <Folder Include="ressourcen\Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomUserControls\CustomUserControls.csproj" />
   </ItemGroup>
 
   <ItemGroup>
