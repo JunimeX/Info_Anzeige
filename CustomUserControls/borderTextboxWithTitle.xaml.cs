@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,8 +46,10 @@ namespace CustomUserControls
     ///     <MyNamespace:CustomControl1/>
     ///
     /// </summary>
-    public partial class borderTextboxWithTitle : UserControl
+    public partial class borderTextboxWithTitle : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public borderTextboxWithTitle()
         {
             InitializeComponent();
@@ -56,16 +60,41 @@ namespace CustomUserControls
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            set 
+            { 
+                SetValue(TitleProperty, value);
+                OnPropertyChanged(nameof(Title));
+            }
         }
 
+        public static DependencyProperty myBackgroundProperty =
+           DependencyProperty.Register("myBackground", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
+        public string myBackground
+        {
+            get { return (string)GetValue(TitleProperty); }
+            set
+            {
+                SetValue(TitleProperty, value);
+                OnPropertyChanged(nameof(myBackground));
+            }
+        }
 
         public static DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-        public string Text
+            DependencyProperty.Register("myText", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
+
+        public string myText
         {
             get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            set 
+            { 
+                SetValue(TextProperty, value);
+                OnPropertyChanged(nameof(myText));
+            }
+        }
+
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
