@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CustomUserControls"
-      mc:Ignorable="d">
+      mc:Ignorable="d" x:Name="myTextBoxWithTitle">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,12 +18,17 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <Label Grid.Row="0" Content="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:borderTextboxWithTitle}}, Path=Title}" 
+        <Label Grid.Row="0" Content="{Binding ElementName=myTextBoxWithTitle, Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Foreground="Black" VerticalContentAlignment="Bottom" FontSize="11" FontWeight="Bold"/>
 
-        <TextBox Style="{StaticResource RoundCornerTextBox}" Grid.Row="1"
-            Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:borderTextboxWithTitle}}, Path=Text}" 
-            FontSize="11"/>
+        <Border Grid.Row="1" Style="{StaticResource RoundCornerBorderBlack}" Background="{Binding ElementName=myTextBoxWithTitle , Path=myBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox  
+                Text="{Binding ElementName=myTextBoxWithTitle, Path=myText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                Background="{Binding ElementName=myTextBoxWithTitle , Path=myBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="11" BorderThickness="0" Margin=" 1.5" TextAlignment="Center">
+            </TextBox>
+        </Border>
+        
 
     </Grid>
 </UserControl>

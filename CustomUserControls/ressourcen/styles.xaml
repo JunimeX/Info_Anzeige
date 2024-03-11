@@ -27,34 +27,18 @@
     <!-- Border Styles-->
 
     <!-- Round Corner Border Login-->
-    <Style x:Key="RoundCornerBorder" TargetType="Border">
+    <Style x:Key="RoundCornerBorderGray" TargetType="Border">
         <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="DimGray"/>
     </Style>
 
-    <!-- Round Border TextBox-->
-    <Style x:Key="RoundCornerTextBox" TargetType="TextBox">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
-                    <Border CornerRadius="6"
-                            BorderThickness="2"
-                            BorderBrush="Black"
-                            Background="{TemplateBinding Background}">
-                        <TextBox FontSize="11"
-                                 Foreground="Black"
-                                 BorderThickness="0"
-                                 Margin="1.5"
-                                 HorizontalAlignment="Stretch"
-                                 HorizontalContentAlignment="Center"
-                                 VerticalAlignment="Center"
-                            />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="{x:Type Border}" x:Key="RoundCornerBorderBlack">
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="Black"/>
     </Style>
+    
     
     <!-- RoundCornerButton -->
     <Style x:Key="RoundCornerButton" TargetType="Button">

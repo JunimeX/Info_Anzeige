@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Info_Anzeige.Klassen;
 
 namespace Info_Anzeige.GUI
 {
@@ -22,36 +23,23 @@ namespace Info_Anzeige.GUI
     /// </summary>
     public partial class ConnectionPage : Page
     {
-        private string _datenbankname;
-
-        public string DatenbankName
-        {
-            get { return this._datenbankname; } 
-            set 
-            { 
-                if(value != null)
-                {
-                    this._datenbankname = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        public ConnectionString connectionString;
 
         public ConnectionPage()
         {
             InitializeComponent();
+            connectionString = new ConnectionString();
+            this.DataContext = connectionString;
+            NameBox.myText = connectionString.DatenbankName;
+            AdressBox.myText = connectionString.IpAdresse;
+            PortBox.myText = connectionString.Port;
+            
         }
 
         private void VerbindenButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hallo du Arschkrampe");
+            connectionString.SafeConnectionString();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
