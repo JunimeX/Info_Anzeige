@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CustomUserControls"
-      mc:Ignorable="d">
+      mc:Ignorable="d" x:Name="MyBorderButton">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Button Style="{StaticResource RoundCornerButton}" Content="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ProjektBorderButton}}, Path=BContent}"
+        <Button Style="{StaticResource RoundCornerButton}" Content="{Binding ElementName=MyBorderButton, Path=BContent}"
                 Click="OnButtonClick"/>
     </Grid>
 </UserControl>

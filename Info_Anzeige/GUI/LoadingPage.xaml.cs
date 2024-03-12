@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Controls;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Info_Anzeige.GUI
 {
@@ -24,7 +12,18 @@ namespace Info_Anzeige.GUI
         {
             InitializeComponent();
             // Initialisiere die Server Verbindung mit Überprüfung
+            Loaded += Page_Loaded;
+        }
 
+        private void Page_Loaded(object sender, EventArgs e)
+        {
+            LoadLoginPage();
+        }
+
+
+        private void LoadLoginPage()
+        {
+            NavigationService.Navigate(new Login());
         }
     }
 }

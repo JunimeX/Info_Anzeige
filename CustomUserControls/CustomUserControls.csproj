@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="ressourcen\Fonts\" />
+    <Folder Include="Themes\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Info_Anzeige.Klassen
 {
@@ -12,10 +6,10 @@ namespace Info_Anzeige.Klassen
     {
         [Key]
         private int benutzererid;
-        public int Benutzererid 
-        {  
-            get { return benutzererid;}
-            set {  benutzererid = value; }
+        public int Benutzererid
+        {
+            get { return benutzererid; }
+            set { benutzererid = value; }
         }
 
         private int name;
@@ -26,7 +20,7 @@ namespace Info_Anzeige.Klassen
         }
 
         private int berechtigung;
-        public int Berechtigung        
+        public int Berechtigung
         {
             get { return berechtigung; }
             set { berechtigung = value; }
@@ -35,8 +29,8 @@ namespace Info_Anzeige.Klassen
         private string passwort;
         public string Passwort
         {
-            get { return passwort;}
+            get { return passwort; }
             set { passwort = value; }
-        }        
+        }
     }
 }

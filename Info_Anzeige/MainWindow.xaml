@@ -53,7 +53,7 @@
                 
             </WrapPanel>
 
-            <Frame x:Name="MainFrame" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,31,0,0" Grid.RowSpan="2">
+            <Frame x:Name="MainFrame" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,31,0,0" Grid.RowSpan="2" NavigationUIVisibility="Hidden">
                 
             </Frame>
         </Grid>
