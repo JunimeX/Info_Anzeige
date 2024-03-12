@@ -71,17 +71,32 @@ namespace CustomUserControls
            DependencyProperty.Register("myBackground", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
         public string myBackground
         {
-            get { return (string)GetValue(TitleProperty); }
+            get { return (string)GetValue(myBackgroundProperty); }
             set
             {
-                SetValue(TitleProperty, value);
+                SetValue(myBackgroundProperty, value);
                 OnPropertyChanged(nameof(myBackground));
+            }
+        }
+
+
+
+        public static DependencyProperty myFontSizeProperty =
+            DependencyProperty.Register("myFontSize", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
+
+
+        public string myFontSize
+        {
+            get { return (string)GetValue(myFontSizeProperty); }
+            set
+            {
+                SetValue(myFontSizeProperty, value);
+                OnPropertyChanged(nameof(myFontSize));
             }
         }
 
         public static DependencyProperty TextProperty =
             DependencyProperty.Register("myText", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-
         public string myText
         {
             get { return (string)GetValue(TextProperty); }
@@ -89,6 +104,34 @@ namespace CustomUserControls
             { 
                 SetValue(TextProperty, value);
                 OnPropertyChanged(nameof(myText));
+            }
+        }
+
+        public static DependencyProperty myMinVisibility =
+            DependencyProperty.Register("minVisibility", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
+
+
+        public string minVisibility
+        {
+            get { return (string)GetValue(myMinVisibility); }
+            set
+            {
+                SetValue(myMinVisibility, value);
+                OnPropertyChanged(nameof(minVisibility));
+            }
+        }
+
+        public static DependencyProperty myMaxVisibility =
+            DependencyProperty.Register("minVisibility", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
+
+
+        public string maxVisibility
+        {
+            get { return (string)GetValue(myMaxVisibility); }
+            set
+            {
+                SetValue(myMaxVisibility, value);
+                OnPropertyChanged(nameof(maxVisibility));
             }
         }
 

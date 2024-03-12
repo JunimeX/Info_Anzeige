@@ -20,6 +20,11 @@ namespace CustomUserControls
     /// </summary>
     public partial class NavigationTop : UserControl
     {
+        public event EventHandler ExitClick;
+        public event EventHandler WindowClick;
+        public event EventHandler MinimizeClick;
+        public event EventHandler MaximizeClick;
+
         public NavigationTop()
         {
             InitializeComponent();
@@ -32,6 +37,25 @@ namespace CustomUserControls
             get { return (string)GetValue(MyLableContentProperty); }
             set { SetValue(MyLableContentProperty, value); }
         }
+        
 
+
+        private void MaximizeButtonClick(object sender, RoutedEventArgs e)
+        {
+            MaximizeClick?.Invoke(this, EventArgs.Empty);
+        }
+        private void WindowButtonClick(object sender, RoutedEventArgs e)
+        {
+            WindowClick?.Invoke(this, EventArgs.Empty);
+        }
+        private void MinimizeButtonClick(object sender, RoutedEventArgs e)
+        {
+            MinimizeClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void ExitButtonClick(object sender, RoutedEventArgs e)
+        {
+            ExitClick?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

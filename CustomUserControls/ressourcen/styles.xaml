@@ -35,13 +35,13 @@
      
     <Style TargetType="{x:Type Border}" x:Key="RoundCornerBorderBlack">
         <Setter Property="CornerRadius" Value="6"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="Black"/>
     </Style>
     
     <!--Border Radius unten-->
     <Style TargetType="Border" x:Key="DownCornerRadius">
-        <Setter Property="CornerRadius" Value="0,0,6,6"/>
+        <Setter Property="CornerRadius" Value="0,0,0,0"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="DimGray"/>
     </Style>
@@ -52,7 +52,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="6" 
-                        BorderThickness="2"
+                        BorderThickness="1"
                         BorderBrush="Black"
                         Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" 

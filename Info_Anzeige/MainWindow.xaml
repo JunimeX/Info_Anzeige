@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:MyNamespace="clr-namespace:CustomUserControls;assembly=CustomUserControls"
         xmlns:local="clr-namespace:Info_Anzeige"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" x:Name="MainFramne"
+        Title="MainWindow" Height="450" Width="800" x:Name="MainWindowFrame"
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         WindowStyle="None">
     <Window.Resources> 
@@ -29,31 +30,13 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <WrapPanel Grid.Row="0" Grid.Column="0">
-                <Label Content="Projekt: Anzeigetafel" FontSize="16" FontWeight="Bold"/>
-            </WrapPanel>
+            <MyNamespace:NavigationTop Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" MyTitle="Info Anzeige"
+                                       ExitClick="NavigationTop_ExitClick"
+                                       MinimizeClick="NavigationTop_MinimizeClick"
+                                       MaximizeClick="NavigationTop_MaximizeClick"
+                                       WindowClick="NavigationTop_WindowClick"/>
 
-            <WrapPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Height="25" VerticalAlignment="Center">
-                
-                <Button Style="{StaticResource FramUIButton}">
-                    <Image Source="{StaticResource di_minimize_xaml}" Stretch="Fill" Margin="5,5,5,0" Height="2" VerticalAlignment="Bottom"/>
-                </Button>
-
-                <Button Style="{StaticResource FramUIButton}" Visibility="Visible">
-                    <Image Source="{StaticResource di_normalwindow_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
-                </Button>
-
-                <Button Style="{StaticResource FramUIButton}" Visibility="Collapsed">
-                    <Image Source="{StaticResource di_maximize_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
-                </Button>
-
-                <Button Style="{StaticResource FramUIButton}" Click="Exit_Click">
-                    <Image Source="{StaticResource di_smallcloseicon_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
-                </Button>
-                
-            </WrapPanel>
-
-            <Frame x:Name="MainFrame" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,31,0,0" Grid.RowSpan="2" NavigationUIVisibility="Hidden">
+            <Frame x:Name="MainFrame" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0,0,0" NavigationUIVisibility="Hidden">
                 
             </Frame>
         </Grid>

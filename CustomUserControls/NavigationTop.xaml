@@ -13,30 +13,34 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border Style="{StaticResource DownCornerRadius}" Background="DarkOrange" BorderThickness="2,2,2,2">
-        <Grid Background="DarkOrange" Margin="1.5" Width="Auto">
+    <Border Style="{StaticResource DownCornerRadius}" Background="#f7b16a" BorderThickness="2,2,2,2">
+        <Grid Background="#f7b16a" Margin="1.5" Width="Auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Content="{Binding ElementName=myNavigationTop, Path=MyTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   Content="{Binding ElementName=myNavigationTop, Path=MyTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                   FontWeight="Bold" FontSize="16" Foreground="White"/>
 
             <WrapPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button Background="DarkOrange" Height="25" Width="25" BorderThickness="0">
+                <Button Background="#f7b16a" Height="25" Width="25" BorderThickness="0" Click="MinimizeButtonClick">
                     <Image Source="{StaticResource di_minimize_xaml}" Stretch="Fill" Margin="5,5,5,0" Height="2" VerticalAlignment="Bottom"/>
                 </Button>
 
-                <Button Visibility="Visible" Background="DarkOrange" Height="25" Width="25" BorderThickness="0">
+                <Button Background="#f7b16a" Height="25" Width="25" BorderThickness="0" Click="WindowButtonClick"
+                        Visibility="{Binding ElementName=myNavigationTop, Path=minVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <Image Source="{StaticResource di_normalwindow_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
                 </Button>
 
-                <Button Visibility="Collapsed" Background="DarkOrange" Height="25" Width="25" BorderThickness="0">
+                <Button Background="#f7b16a" Height="25" Width="25" BorderThickness="0" Click="MaximizeButtonClick"
+                        Visibility="{Binding ElementName=myNavigationTop, Path=MaxVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <Image Source="{StaticResource di_maximize_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
                 </Button>
 
-                <Button Background="DarkOrange" Height="25" Width="25" BorderThickness="0">
+                <Button Background="#f7b16a" Height="25" Width="25" BorderThickness="0" Click="ExitButtonClick">
                     <Image Source="{StaticResource di_smallcloseicon_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
                 </Button>
             </WrapPanel>
