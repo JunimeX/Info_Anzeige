@@ -1,5 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Navigation;
+using Info_Anzeige.Klassen;
+using Microsoft.EntityFrameworkCore;
 
 namespace Info_Anzeige.GUI
 {
@@ -17,7 +20,18 @@ namespace Info_Anzeige.GUI
 
         private void Page_Loaded(object sender, EventArgs e)
         {
-            LoadLoginPage();
+            try
+            {
+                using (var context = new AnzeigeContext())
+                {
+                    context.Database.OpenConnection();
+                    MessageBox.Show("Verbindung war erfolgreich");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

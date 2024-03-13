@@ -92,10 +92,9 @@ namespace Info_Anzeige.Klassen
             StringBuilder sb = new StringBuilder();
 
             sb.AppendFormat(
-                "Server={0};" +
-                "Port={1};" +
-                "Database={2};" +
-                "IntegratedSecurity=true;", _datenbankname, _IpAdresse, Port);
+                "Server={1};" +
+                "Port={2};" +
+                "Database={0};", _datenbankname, _IpAdresse, Port);
 
             return sb.ToString();
         }
