@@ -50,8 +50,8 @@
                     <MyNamespace:borderTextboxWithTitle x:Name="NameBox"  myFontSize="14" Title="DB Name" myText="{Binding Path=DatenbankName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
                     <MyNamespace:borderTextboxWithTitle x:Name="AdressBox" myFontSize="14"  Title="IP-Adresse" myText="{Binding Path=IpAdresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
                     <MyNamespace:borderTextboxWithTitle x:Name="PortBox" myFontSize="14" Title="Port" myText="{Binding Path=Port, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-                    <MyNamespace:borderTextboxWithTitle x:Name="UserBox" myFontSize="14" Title="Login Name" myText="{Binding Path=BenutzerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-                    <MyNamespace:borderTextboxWithTitle x:Name="PasswortBox" myFontSize="14" Title="Passwort" myText="{Binding Path=Passwort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                    <MyNamespace:borderTextboxWithTitle x:Name="UserBox" myFontSize="14" Title="Login Name *" myText="{Binding Path=BenutzerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                    <MyNamespace:borderTextboxWithTitle x:Name="PasswortBox" myFontSize="14" Title="Passwort *" myText="{Binding Path=Passwort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
 
                     <MyNamespace:ProjektBorderButton x:Name="VerbindenButton" BContent="Verbinden" RoundCornerButtonBackground="#ffc987"

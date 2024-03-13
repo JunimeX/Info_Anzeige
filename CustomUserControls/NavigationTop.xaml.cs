@@ -43,12 +43,12 @@ namespace CustomUserControls
         }
 
         public static DependencyProperty myMinVisibility =
-            DependencyProperty.Register("MinVisibility", typeof(string), typeof(NavigationTop), new PropertyMetadata(""));
+            DependencyProperty.Register("MinVisibility", typeof(Visibility), typeof(NavigationTop), new PropertyMetadata(Visibility.Visible));
 
 
-        public string MinVisibility
+        public Visibility MinVisibility
         {
-            get { return (string)GetValue(myMinVisibility); }
+            get { return (Visibility)GetValue(myMinVisibility); }
             set
             {
                 SetValue(myMinVisibility, value);
@@ -57,12 +57,12 @@ namespace CustomUserControls
         }
 
         public static DependencyProperty myMaxVisibility =
-            DependencyProperty.Register("MaxVisibility", typeof(string), typeof(NavigationTop), new PropertyMetadata(""));
+            DependencyProperty.Register("MaxVisibility", typeof(Visibility), typeof(NavigationTop), new PropertyMetadata(Visibility.Visible));
 
 
-        public string MaxVisibility
+        public Visibility MaxVisibility
         {
-            get { return (string)GetValue(myMaxVisibility); }
+            get { return (Visibility)GetValue(myMaxVisibility); }
             set
             {
                 SetValue(myMaxVisibility, value);

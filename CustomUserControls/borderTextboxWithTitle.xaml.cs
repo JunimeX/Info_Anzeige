@@ -68,10 +68,10 @@ namespace CustomUserControls
         }
 
         public static DependencyProperty myBackgroundProperty =
-           DependencyProperty.Register("myBackground", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-        public string myBackground
+           DependencyProperty.Register("myBackground", typeof(Brush), typeof(borderTextboxWithTitle), new PropertyMetadata(Brushes.Transparent));
+        public Brush myBackground
         {
-            get { return (string)GetValue(myBackgroundProperty); }
+            get { return (Brush)GetValue(myBackgroundProperty); }
             set
             {
                 SetValue(myBackgroundProperty, value);

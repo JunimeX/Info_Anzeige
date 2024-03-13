@@ -38,8 +38,8 @@ namespace Info_Anzeige
             if(MainWindowFrame.WindowState != WindowState.Maximized)
             {
                 MainWindowFrame.WindowState= WindowState.Maximized;
-                MyNavigation.MaxVisibility = "Collapsed";
-                MyNavigation.MinVisibility = "Visible";
+                MyNavigation.MaxVisibility = Visibility.Collapsed;
+                MyNavigation.MinVisibility = Visibility.Visible;
             }
         }
 
@@ -48,8 +48,8 @@ namespace Info_Anzeige
             if(MainWindowFrame.WindowState != WindowState.Normal)
             {
                 MainWindowFrame.WindowState = WindowState.Normal;
-                MyNavigation.MinVisibility = "Collapsed";
-                MyNavigation.MaxVisibility = "Visible";
+                MyNavigation.MinVisibility = Visibility.Collapsed;
+                MyNavigation.MaxVisibility = Visibility.Visible;
             }
         }
     }
