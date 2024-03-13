@@ -52,6 +52,7 @@
                     <MyNamespace:ProjektBorderButton x:Name="VerbindenButton" BContent="Einloggen" RoundCornerButtonBackground="#ffc987"
                                                  Margin="0,20" FontSize="14" FontWeight="Bold" 
                                                  HorizontalAlignment="Right" Width="100" RoundCornerButtonForeground="White"/>
+                    
                 </StackPanel>
             </Border>
         </Grid>

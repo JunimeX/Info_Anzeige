@@ -94,7 +94,9 @@ namespace Info_Anzeige.Klassen
             sb.AppendFormat(
                 "Server={1};" +
                 "Port={2};" +
-                "Database={0};", _datenbankname, _IpAdresse, Port);
+                "Database={0};" +
+                "Username=admin;" +
+                "Password=0000;", _datenbankname, _IpAdresse, Port);
 
             return sb.ToString();
         }
