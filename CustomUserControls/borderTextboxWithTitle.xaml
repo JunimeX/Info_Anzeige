@@ -19,13 +19,16 @@
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Content="{Binding ElementName=myTextBoxWithTitle, Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-               VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Foreground="Black" VerticalContentAlignment="Bottom" FontSize="11" FontWeight="Bold"/>
+               VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Foreground="Black" VerticalContentAlignment="Bottom" 
+               FontSize="{Binding ElementName=myTextBoxWithTitle, Path=myFontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+               FontWeight="Bold"/>
 
         <Border Grid.Row="1" Style="{StaticResource RoundCornerBorderBlack}" Background="{Binding ElementName=myTextBoxWithTitle , Path=myBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <TextBox  
                 Text="{Binding ElementName=myTextBoxWithTitle, Path=myText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                 Background="{Binding ElementName=myTextBoxWithTitle , Path=myBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                FontSize="11" BorderThickness="0" Margin=" 1.5" TextAlignment="Center">
+                FontSize="{Binding ElementName=myTextBoxWithTitle, Path=myFontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                BorderThickness="0" Margin="5.5,4.5" TextAlignment="Left">
             </TextBox>
         </Border>
         

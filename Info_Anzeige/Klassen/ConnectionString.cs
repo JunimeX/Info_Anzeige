@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Shapes;
 
 namespace Info_Anzeige.Klassen
 {
-    public class ConnectionString:INotifyPropertyChanged
+    public class ConnectionString : INotifyPropertyChanged
     {
         private const string filepath = @"C:\ProgramData\AnzeigeInfo\data\connectionstring.ini";
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        private string _datenbankname;
-        public string DatenbankName
+        private string? _datenbankname;
+        public string? DatenbankName
         {
             get { return this._datenbankname; }
             set
@@ -32,8 +25,8 @@ namespace Info_Anzeige.Klassen
             }
         }
 
-        private string _IpAdresse;
-        public string IpAdresse
+        private string? _IpAdresse;
+        public string? IpAdresse
         {
             get { return this._IpAdresse; }
             set
@@ -46,8 +39,8 @@ namespace Info_Anzeige.Klassen
             }
         }
 
-        private string _Port;
-        public string Port
+        private string? _Port;
+        public string? Port
         {
             get { return this._Port; }
             set
@@ -99,17 +92,18 @@ namespace Info_Anzeige.Klassen
             StringBuilder sb = new StringBuilder();
 
             sb.AppendFormat(
-                "Server={0};" +
-                "Port={1};" +
-                "Database={2};" +
-                "IntegratedSecurity=true;", _datenbankname, _IpAdresse, Port);
+                "Server={1};" +
+                "Port={2};" +
+                "Database={0};" +
+                "Username=admin;" +
+                "Password=0000;", _datenbankname, _IpAdresse, Port);
 
             return sb.ToString();
         }
 
         public void SafeConnectionString()
         {
-            if((_datenbankname != "" && _datenbankname != null) && (_IpAdresse != "" && _IpAdresse != null) && (_Port != "" && _Port != null))
+            if ((_datenbankname != "" && _datenbankname != null) && (_IpAdresse != "" && _IpAdresse != null) && (_Port != "" && _Port != null))
             {
                 try
                 {
@@ -137,7 +131,7 @@ namespace Info_Anzeige.Klassen
                 MessageBox.Show("Ein Wert wurde nicht korrekt angegeben");
             }
         }
-    
+
 
         public string? LoadConnectionString()
         {
@@ -147,10 +141,10 @@ namespace Info_Anzeige.Klassen
                 using (StreamReader readfile = File.OpenText(filepath))
                 {
                     string linevalue;
-                    StringBuilder sb = new StringBuilder(); 
-                    
+                    StringBuilder sb = new StringBuilder();
+
                     while ((linevalue = readfile.ReadLine()) != null)
-                    {                
+                    {
                         sb.AppendLine(linevalue);
                     }
 
@@ -163,6 +157,6 @@ namespace Info_Anzeige.Klassen
                 return null;
             }
         }
-        
+
     }
 }

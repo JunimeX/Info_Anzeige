@@ -68,20 +68,34 @@ namespace CustomUserControls
         }
 
         public static DependencyProperty myBackgroundProperty =
-           DependencyProperty.Register("myBackground", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-        public string myBackground
+           DependencyProperty.Register("myBackground", typeof(Brush), typeof(borderTextboxWithTitle), new PropertyMetadata(Brushes.Transparent));
+        public Brush myBackground
         {
-            get { return (string)GetValue(TitleProperty); }
+            get { return (Brush)GetValue(myBackgroundProperty); }
             set
             {
-                SetValue(TitleProperty, value);
+                SetValue(myBackgroundProperty, value);
                 OnPropertyChanged(nameof(myBackground));
+            }
+        }
+
+
+        public static DependencyProperty myFontSizeProperty =
+            DependencyProperty.Register("myFontSize", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
+
+
+        public string myFontSize
+        {
+            get { return (string)GetValue(myFontSizeProperty); }
+            set
+            {
+                SetValue(myFontSizeProperty, value);
+                OnPropertyChanged(nameof(myFontSize));
             }
         }
 
         public static DependencyProperty TextProperty =
             DependencyProperty.Register("myText", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-
         public string myText
         {
             get { return (string)GetValue(TextProperty); }

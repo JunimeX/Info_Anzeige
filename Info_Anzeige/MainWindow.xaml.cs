@@ -1,14 +1,6 @@
-﻿using Info_Anzeige.GUI;
-using System.Text;
+﻿using CustomUserControls;
+using Info_Anzeige.GUI;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Info_Anzeige
 {
@@ -23,10 +15,42 @@ namespace Info_Anzeige
             MainFrame.NavigationService.Navigate(new ConnectionPage());
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void NavigationTop_ExitClick(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        private void NavigationTop_MinimizeClick(object sender, EventArgs e)
+        {
+            if (MainWindowFrame.WindowState != WindowState.Minimized)
+            {
+                MainWindowFrame.WindowState = WindowState.Minimized;
+            }
+        }
+
+        private void NavigationTop_MaximizeClick(object sender, EventArgs e)
+        {
+            if(MainWindowFrame.WindowState != WindowState.Maximized)
+            {
+                MainWindowFrame.WindowState= WindowState.Maximized;
+                MyNavigation.MaxVisibility = Visibility.Collapsed;
+                MyNavigation.MinVisibility = Visibility.Visible;
+            }
+        }
+
+        private void NavigationTop_WindowClick(object sender, EventArgs e)
+        {
+            if(MainWindowFrame.WindowState != WindowState.Normal)
+            {
+                MainWindowFrame.WindowState = WindowState.Normal;
+                MyNavigation.MinVisibility = Visibility.Collapsed;
+                MyNavigation.MaxVisibility = Visibility.Visible;
+            }
+        }
     }
 }

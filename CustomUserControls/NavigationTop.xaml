@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="CustomUserControls.NavigationTop"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CustomUserControls"
+             mc:Ignorable="d" x:Name="myNavigationTop">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=".\ressourcen\styles.xaml"/>
+                <ResourceDictionary Source="ressourcen/icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border Style="{StaticResource DownCornerRadius}" Background="#ffc987" BorderThickness="2,2,2,2">
+        <Grid Background="#ffc987" Margin="1.5" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   Content="{Binding ElementName=myNavigationTop, Path=MyTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                   FontWeight="Bold" FontSize="16" Foreground="White"/>
+
+            <WrapPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Background="#ffc987" Height="25" Width="25" BorderThickness="0" Click="MinimizeButtonClick">
+                    <Image Source="{StaticResource di_minimize_xaml}" Stretch="Fill" Margin="5,5,5,0" Height="2" VerticalAlignment="Bottom"/>
+                </Button>
+
+                <Button Background="#ffc987" Height="25" Width="25" BorderThickness="0" Click="WindowButtonClick"
+                        Visibility="{Binding ElementName=myNavigationTop, Path=MinVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <Image Source="{StaticResource di_normalwindow_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
+                </Button>
+
+                <Button Background="#ffc987" Height="25" Width="25" BorderThickness="0" Click="MaximizeButtonClick"
+                        Visibility="{Binding ElementName=myNavigationTop, Path=MaxVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <Image Source="{StaticResource di_maximize_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
+                </Button>
+
+                <Button Background="#ffc987" Height="25" Width="25" BorderThickness="0" Click="ExitButtonClick">
+                    <Image Source="{StaticResource di_smallcloseicon_xaml}" Stretch="Fill" Margin="5,5,5,5"/>
+                </Button>
+            </WrapPanel>
+        </Grid>
+    </Border>
+</UserControl>
