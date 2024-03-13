@@ -80,7 +80,6 @@ namespace CustomUserControls
         }
 
 
-
         public static DependencyProperty myFontSizeProperty =
             DependencyProperty.Register("myFontSize", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
 
@@ -104,34 +103,6 @@ namespace CustomUserControls
             { 
                 SetValue(TextProperty, value);
                 OnPropertyChanged(nameof(myText));
-            }
-        }
-
-        public static DependencyProperty myMinVisibility =
-            DependencyProperty.Register("minVisibility", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-
-
-        public string minVisibility
-        {
-            get { return (string)GetValue(myMinVisibility); }
-            set
-            {
-                SetValue(myMinVisibility, value);
-                OnPropertyChanged(nameof(minVisibility));
-            }
-        }
-
-        public static DependencyProperty myMaxVisibility =
-            DependencyProperty.Register("minVisibility", typeof(string), typeof(borderTextboxWithTitle), new PropertyMetadata(""));
-
-
-        public string maxVisibility
-        {
-            get { return (string)GetValue(myMaxVisibility); }
-            set
-            {
-                SetValue(myMaxVisibility, value);
-                OnPropertyChanged(nameof(maxVisibility));
             }
         }
 

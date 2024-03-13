@@ -36,14 +36,14 @@
     <Style TargetType="{x:Type Border}" x:Key="RoundCornerBorderBlack">
         <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
     </Style>
     
     <!--Border Radius unten-->
     <Style TargetType="Border" x:Key="DownCornerRadius">
         <Setter Property="CornerRadius" Value="0,0,0,0"/>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="BorderBrush" Value="DimGray"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
     </Style>
     
     <!-- RoundCornerButton -->
@@ -53,22 +53,25 @@
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="6" 
                         BorderThickness="1"
-                        BorderBrush="Black"
+                        BorderBrush="LightGray"
                         Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" 
                                       VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="Background" Value="Orange"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="False">
-                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Background" Value="Orange"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- MyBorderButton Style -->
+    
 
 </ResourceDictionary>

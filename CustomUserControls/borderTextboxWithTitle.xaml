@@ -28,7 +28,7 @@
                 Text="{Binding ElementName=myTextBoxWithTitle, Path=myText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                 Background="{Binding ElementName=myTextBoxWithTitle , Path=myBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="{Binding ElementName=myTextBoxWithTitle, Path=myFontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                BorderThickness="0" Margin=" 1.5" TextAlignment="Center">
+                BorderThickness="0" Margin="5.5,4.5" TextAlignment="Left">
             </TextBox>
         </Border>
         

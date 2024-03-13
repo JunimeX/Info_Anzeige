@@ -22,11 +22,11 @@
 
     <!-- Border Styles-->
 
-    <!-- Round Corner Border Login-->
+    <!-- Round Corner Border Controls-->
     <Style x:Key="RoundCornerBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="BorderBrush" Value="DimGray"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
     </Style>
     
     <!-- RoundCornerButton -->

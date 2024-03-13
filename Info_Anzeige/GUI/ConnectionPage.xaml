@@ -20,7 +20,7 @@
         </ResourceDictionary>
     </Page.Resources>
     <Border BorderThickness="0,1,0,1" BorderBrush="White">
-        <Grid Background="LightGray">
+        <Grid Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -36,8 +36,15 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource RoundCornerBorder}" VerticalAlignment="Center" Background="White" Width="Auto">
-                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2,2,2,2" Width="250">
+            <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource RoundCornerBorder}" VerticalAlignment="Center" Background="White"
+                    MaxWidth="350" MinWidth="200">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="7"
+                                      ShadowDepth="7"
+                                      Direction="315"
+                                      Color="#DDDDDD"/>
+                </Border.Effect>
+                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,1.5,15,1.5">
                     <Label Content="Serververbindung" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
                     <MyNamespace:borderTextboxWithTitle x:Name="NameBox"  myFontSize="14" Title="DB Name" myText="{Binding Path=DatenbankName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
@@ -47,9 +54,9 @@
                     <MyNamespace:borderTextboxWithTitle x:Name="PasswortBox" myFontSize="14" Title="Passwort" myText="{Binding Path=Passwort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
 
-                    <MyNamespace:ProjektBorderButton x:Name="VerbindenButton" BContent="Verbinden" Background="White" 
+                    <MyNamespace:ProjektBorderButton x:Name="VerbindenButton" BContent="Verbinden" RoundCornerButtonBackground="#ffc987"
                                                      Margin="0,20" FontSize="14" FontWeight="Bold" Click="VerbindenButton_Click"
-                                                     HorizontalAlignment="Right" Width="100"/>
+                                                     HorizontalAlignment="Right" Width="100" RoundCornerButtonForeground="White"/>
                 </StackPanel>
             </Border>
         </Grid>

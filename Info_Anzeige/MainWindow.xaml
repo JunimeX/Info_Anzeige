@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" x:Name="MainWindowFrame"
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        WindowStyle="None">
+        WindowStyle="None" MinHeight="450" MinWidth="800">
     <Window.Resources> 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Border>
-        <Grid x:Name="FrameGrid" Background="LightGray">
+        <Grid x:Name="FrameGrid" Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -30,7 +30,8 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <MyNamespace:NavigationTop Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" MyTitle="Info Anzeige"
+            <MyNamespace:NavigationTop x:Name="MyNavigation" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" MyTitle="Info Anzeige"
+                                       MinVisibility="Visible" MaxVisibility="Collapsed"
                                        ExitClick="NavigationTop_ExitClick"
                                        MinimizeClick="NavigationTop_MinimizeClick"
                                        MaximizeClick="NavigationTop_MaximizeClick"

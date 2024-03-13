@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,12 +20,14 @@ namespace CustomUserControls
     /// <summary>
     /// Interaktionslogik für NavigationTop.xaml
     /// </summary>
-    public partial class NavigationTop : UserControl
+    public partial class NavigationTop : UserControl, INotifyPropertyChanged
     {
         public event EventHandler ExitClick;
         public event EventHandler WindowClick;
         public event EventHandler MinimizeClick;
         public event EventHandler MaximizeClick;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public NavigationTop()
         {
@@ -37,8 +41,34 @@ namespace CustomUserControls
             get { return (string)GetValue(MyLableContentProperty); }
             set { SetValue(MyLableContentProperty, value); }
         }
-        
 
+        public static DependencyProperty myMinVisibility =
+            DependencyProperty.Register("MinVisibility", typeof(string), typeof(NavigationTop), new PropertyMetadata(""));
+
+
+        public string MinVisibility
+        {
+            get { return (string)GetValue(myMinVisibility); }
+            set
+            {
+                SetValue(myMinVisibility, value);
+                OnPropertyChanged(nameof(MinVisibility));
+            }
+        }
+
+        public static DependencyProperty myMaxVisibility =
+            DependencyProperty.Register("MaxVisibility", typeof(string), typeof(NavigationTop), new PropertyMetadata(""));
+
+
+        public string MaxVisibility
+        {
+            get { return (string)GetValue(myMaxVisibility); }
+            set
+            {
+                SetValue(myMaxVisibility, value);
+                OnPropertyChanged(nameof(MaxVisibility));
+            }
+        }
 
         private void MaximizeButtonClick(object sender, RoutedEventArgs e)
         {
@@ -56,6 +86,11 @@ namespace CustomUserControls
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
             ExitClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

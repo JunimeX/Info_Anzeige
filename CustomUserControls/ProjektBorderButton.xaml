@@ -10,10 +10,32 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source=".\ressourcen\styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="CornerButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="{Binding ElementName=MyBorderButton, Path=RoundCornerButtonBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Setter Property="Foreground" Value="{Binding ElementName=MyBorderButton, Path=RoundCornerButtonForeground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Margin" Value="1.5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="LightGray" BorderThickness="1">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,5"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <!-- MouseOver-Trigger -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="Orange"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Button Style="{StaticResource RoundCornerButton}" Content="{Binding ElementName=MyBorderButton, Path=BContent}"
-                Click="OnButtonClick"/>
+        <Button Style="{StaticResource CornerButtonStyle}"
+            Click="OnButtonClick"
+            Content="{Binding ElementName=MyBorderButton, Path=BContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>
