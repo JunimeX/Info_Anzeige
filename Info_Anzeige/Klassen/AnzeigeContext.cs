@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Info_Anzeige.Klassen
 {
@@ -6,7 +7,6 @@ namespace Info_Anzeige.Klassen
     {
         public DbSet<Benutzer> Benutzer { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Author> Authoren { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -19,18 +19,25 @@ namespace Info_Anzeige.Klassen
         {
             // Hier können Sie die Konfigurationen für Ihre Modelle festlegen, falls erforderlich
             modelBuilder.Entity<Benutzer>()
-                .HasKey(a => a.Benutzerer_Id);
+                .HasKey(a => a.Benutzer_ID);
 
             modelBuilder.Entity<Post>()
                 .HasKey(a => a.Post_ID);
 
-            modelBuilder.Entity<Author>()
-                .HasKey(a => a.Author_ID);
-
             modelBuilder.Entity<Post>()
                 .HasOne(p => p.Author)
                 .WithMany(p => p.Posts)
-                .HasForeignKey(p => p.Author_ID);
+                .HasForeignKey(p => p.Benutzer_ID);
+
+            modelBuilder.Entity<Benutzer>().HasData(
+                new Benutzer
+                {
+                    Benutzer_ID = 1,
+                    Name = "Admin",
+                    Berechtigung = "Admin",
+                    Passwort = "0000"
+                }
+                );
         }
     }
 }
