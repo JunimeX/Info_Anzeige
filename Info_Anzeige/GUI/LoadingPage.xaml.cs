@@ -4,6 +4,8 @@ using System.Windows.Navigation;
 using System.Windows.Threading;
 using Info_Anzeige.Klassen;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Info_Anzeige.GUI
 {
@@ -24,24 +26,19 @@ namespace Info_Anzeige.GUI
 
         private void Page_Loaded(object sender, EventArgs e)
         {
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(10);
-            timer.Tick += TimerTick;
-            timer.Start();
-
             loading_timer = new DispatcherTimer();
             loading_timer.Interval = TimeSpan.FromMilliseconds(5);
             loading_timer.Tick += LoadingTimerTick;
             loading_timer.Start();
-        }
 
-        private void TimerTick(object? sender, EventArgs args)
-        {
+            var database_context = new AnzeigeContext();
+
             try
             {
                 using (var context = new AnzeigeContext())
                 {
                     context.Database.OpenConnection();
+                    context.Database.CloseConnection();
                 }
             }
             catch (Exception ex)
@@ -50,15 +47,33 @@ namespace Info_Anzeige.GUI
                                 "Fehlermeldung: \n\r" + ex);
             }
 
-            timer.Stop();
+            if (database_context.Database.CanConnect())
+            {
+                using (var dbcontext = new AnzeigeContext())
+                {
+                    dbcontext.Database.OpenConnection();
+                    dbcontext.Database.Migrate();
+                                 
+                }
+                    LoadLoginPage();
+            }
+            else
+            {
+                LoadConnectionPage();
+            }
             loading_timer?.Stop();
 
-            LoadLoginPage();
+            
         }
 
         private void LoadingTimerTick(object sender, EventArgs args)
         {
             Image_Radius.Angle += 5;
+        }
+
+        private void LoadConnectionPage()
+        {
+            NavigationService.GoBack();
         }
 
         private void LoadLoginPage()

@@ -158,5 +158,10 @@ namespace Info_Anzeige.Klassen
             }
         }
 
+        public string GetFilepath()
+        {
+            return filepath;
+        }
+
     }
 }

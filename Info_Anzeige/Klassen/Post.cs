@@ -37,15 +37,15 @@ namespace Info_Anzeige.Klassen
             }
         }
 
-        [ForeignKey(nameof(author_id))]
-        private long author_id;
-        public long Author_ID
+        [ForeignKey(nameof(benutzer_id))]
+        private long benutzer_id;
+        public long Benutzer_ID
         {
-            get { return author_id; }
+            get { return benutzer_id; }
             set
             {
-                author_id = value;
-                OnPropertyChanged(nameof(Author_ID));
+                benutzer_id = value;
+                OnPropertyChanged(nameof(Benutzer_ID));
             }
         }
 
@@ -94,7 +94,7 @@ namespace Info_Anzeige.Klassen
             }
         }
 
-        public virtual Author Author { get; set; }
+        public virtual Benutzer Author { get; set; }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

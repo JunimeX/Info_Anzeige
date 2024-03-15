@@ -1,5 +1,9 @@
 ﻿using CustomUserControls;
 using Info_Anzeige.GUI;
+using Info_Anzeige.Klassen;
+using Microsoft.VisualBasic;
+using System.DirectoryServices;
+using System.IO;
 using System.Windows;
 
 namespace Info_Anzeige
@@ -12,12 +16,17 @@ namespace Info_Anzeige
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new ConnectionPage());
-        }
+            ConnectionString file = new ConnectionString();
 
-        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
+            if (File.Exists(file.GetFilepath()))
+            {
+                MainFrame.NavigationService.Navigate(new LoadingPage());
+            }
+            else
+            {
+                MainFrame.NavigationService.Navigate(new ConnectionPage());
+            }
+            
         }
 
         private void NavigationTop_ExitClick(object sender, EventArgs e)

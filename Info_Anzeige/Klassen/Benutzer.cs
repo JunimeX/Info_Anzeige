@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Info_Anzeige.Klassen
 {
@@ -8,20 +9,21 @@ namespace Info_Anzeige.Klassen
         public event PropertyChangedEventHandler? PropertyChanged;
 
         [Key]
-        private int benutzerer_id;
-        public int Benutzerer_Id
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        private long benutzer_id;
+        public long Benutzer_ID
         {
-            get { return benutzerer_id; }
+            get { return benutzer_id; }
             set 
             { 
-                benutzerer_id = value;
-                OnPropertyChanged(nameof(Benutzerer_Id));
+                benutzer_id = value;
+                OnPropertyChanged(nameof(Benutzer_ID));
             }
         }
 
         [Required]
-        private int name;
-        public int Name
+        private string name;
+        public string Name
         {
             get { return name; }
             set 
@@ -32,8 +34,8 @@ namespace Info_Anzeige.Klassen
         }
 
         [Required]
-        private int berechtigung;
-        public int Berechtigung
+        private string berechtigung;
+        public string Berechtigung
         {
             get { return berechtigung; }
             set 
@@ -54,6 +56,8 @@ namespace Info_Anzeige.Klassen
                 OnPropertyChanged(nameof(Passwort));
             }
         }
+
+        public List<Post>? Posts { get; set; }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

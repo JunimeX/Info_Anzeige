@@ -10,6 +10,12 @@ namespace Info_Anzeige.GUI
         public Login()
         {
             InitializeComponent();
+            Loaded += GuiIsLoaded;
+        }
+
+        private void GuiIsLoaded(object sender, EventArgs args)
+        {
+            NavigationService.RemoveBackEntry();
         }
     }
 }
